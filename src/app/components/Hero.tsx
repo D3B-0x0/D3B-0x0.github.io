@@ -28,7 +28,7 @@ export function Hero() {
             >
               <img
                 src={profileImage}
-                alt="Deb - Infrastructure Engineer"
+                alt="Debjoity - Infrastructure Engineer"
                 className="w-full h-full object-cover grayscale"
               />
             </div>
@@ -39,7 +39,7 @@ export function Hero() {
             <div className="flex items-center gap-3 mb-8">
               <Terminal className="w-8 h-8" style={{ color: "var(--ctp-blue)" }} />
               <span className="font-mono text-sm" style={{ color: "var(--ctp-subtext0)" }}>
-                ghost@infra:~$
+                ghost@linoox:~$
               </span>
             </div>
 
@@ -50,7 +50,7 @@ export function Hero() {
               className="text-6xl md:text-7xl font-bold mb-4"
               style={{ color: "var(--ctp-text)" }}
             >
-              Deb
+              Debjoity
             </motion.h1>
 
             <motion.div
@@ -60,11 +60,12 @@ export function Hero() {
               className="space-y-3"
             >
               <p className="text-xl md:text-2xl" style={{ color: "var(--ctp-subtext0)" }}>
-                Infrastructure Engineer
+                Infrastructure Engineer/Student
               </p>
               <p className="text-lg max-w-2xl" style={{ color: "var(--ctp-subtext1)" }}>
                 Building resilient cloud infrastructure, automating datacenter operations, 
-                and architecting scalable container platforms.
+                and architecting scalable container platforms. Love self-hosting
+                and opensource projects.
               </p>
             </motion.div>
 

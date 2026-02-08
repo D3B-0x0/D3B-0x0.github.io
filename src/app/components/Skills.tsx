@@ -4,7 +4,7 @@ export function Skills() {
   const skillCategories = [
     {
       category: "Operating Systems",
-      skills: ["Linux (RHEL, Debian, Arch)", "FreeBSD", "System Hardening"],
+      skills: ["Linux (Fedora, Debian, Arch)", "System Hardening"],
     },
     {
       category: "Containerization",
@@ -12,19 +12,19 @@ export function Skills() {
     },
     {
       category: "Virtualization",
-      skills: ["Proxmox VE", "KVM/QEMU", "VMware", "LXC"],
+      skills: ["Proxmox VE", "KVM/QEMU", "VMware", "LXC/Vbox"],
     },
     {
       category: "Cloud Platforms",
-      skills: ["AWS", "Azure", "GCP", "Infrastructure as Code"],
+      skills: ["AWS", "GCP", "Infrastructure as Code", "Self Hosted Cloud Technologies"],
     },
     {
       category: "Networking",
-      skills: ["TCP/IP", "VLANs", "VPN", "Network Security", "pfSense"],
+      skills: ["TCP/IP", "VLANs", "VPN/Tunnels", "Network Security", "OpenWrt/pfsense"],
     },
     {
       category: "Automation & Tools",
-      skills: ["Ansible", "Terraform", "Git", "CI/CD Pipelines"],
+      skills: ["Ansible", "n8n", "Git", "CI/CD Pipelines"],
     },
     {
       category: "Self-Hosting",
@@ -32,7 +32,7 @@ export function Skills() {
     },
     {
       category: "Databases",
-      skills: ["PostgreSQL", "MySQL", "Redis", "MongoDB"],
+      skills: ["PostgreSQL", "MySQL", "Redis", "sqlite"],
     },
   ];
 
