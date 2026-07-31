@@ -1,104 +1,83 @@
 import { motion } from "motion/react";
-import { Terminal } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import profileImage from "../../assets/me.jpg";
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-6xl w-full">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center px-6 pt-24 pb-16"
+    >
+      <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
+        {/* Copy */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col md:flex-row items-center gap-12"
         >
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex-shrink-0"
+          <span
+            className="eyebrow px-3 py-1.5 rounded-md inline-block mb-8"
+            style={{ color: "var(--ctp-base)", backgroundColor: "var(--ctp-blue)", transform: "rotate(-1.5deg)" }}
           >
-            <div
-              className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden ring-4 ring-offset-4"
-              style={{
-                ringColor: "var(--ctp-blue)",
-                backgroundColor: "var(--ctp-mantle)",
-              }}
+            ghost@void:~$
+          </span>
+
+          <h1
+            className="display text-6xl md:text-7xl lg:text-8xl mb-5"
+            style={{ color: "var(--ctp-text)" }}
+          >
+            Deb
+          </h1>
+
+          <p className="text-xl md:text-2xl mb-4 font-medium" style={{ color: "var(--ctp-text)" }}>
+            Student — self-hosting &amp; cloud infrastructure enthusiast
+          </p>
+
+          <p className="text-lg max-w-xl leading-relaxed mb-10" style={{ color: "var(--ctp-subtext0)" }}>
+            BCA student learning cloud infrastructure the hard way — self-hosting the
+            services I use daily, running my own VPS edge, and writing down everything
+            that breaks along the way. Currently learning Terraform, networking, and how
+            the layers actually work.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="https://github.com/D3B-0x0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sticker inline-flex px-6 py-3 text-sm"
+              style={{ color: "var(--ctp-base)", backgroundColor: "var(--ctp-blue)", ["--tilt" as string]: "-1deg" }}
             >
+              View GitHub
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+            <a
+              href="#contact"
+              className="sticker inline-flex px-6 py-3 text-sm"
+              style={{ color: "var(--ctp-text)", backgroundColor: "var(--ctp-surface0)", ["--tilt" as string]: "1deg" }}
+            >
+              Get in Touch
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Polaroid portrait */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="relative justify-self-center lg:justify-self-end w-full max-w-xs md:max-w-sm"
+        >
+          <span className="tape" style={{ backgroundColor: "var(--ctp-lavender)" }} />
+          <div className="polaroid" style={{ ["--tilt" as string]: "2.5deg" }}>
+            <div className="overflow-hidden" style={{ backgroundColor: "var(--ctp-crust)" }}>
               <img
                 src={profileImage}
-                alt="Deb - self-hosting & cloud infrastructure enthusiast"
-                className="w-full h-full object-cover grayscale"
+                alt="Deb — self-hosting & cloud infrastructure enthusiast"
+                className="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
-          </motion.div>
-
-          {/* Content */}
-          <div className="flex-1 space-y-6">
-            <div className="flex items-center gap-3 mb-8">
-              <Terminal className="w-8 h-8" style={{ color: "var(--ctp-blue)" }} />
-              <span className="font-mono text-sm" style={{ color: "var(--ctp-subtext0)" }}>
-                ghost@void:~$
-              </span>
-            </div>
-
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-6xl md:text-7xl font-bold mb-4"
-              style={{ color: "var(--ctp-text)" }}
-            >
-              Deb
-            </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-3"
-            >
-              <p className="text-xl md:text-2xl" style={{ color: "var(--ctp-subtext0)" }}>
-                Student — Self-hosting & Cloud Infrastructure Enthusiast
-              </p>
-              <p className="text-lg max-w-2xl" style={{ color: "var(--ctp-subtext1)" }}>
-                BCA student learning cloud infrastructure the hard way — self-hosting the
-                services I use daily, running my own VPS edge, and writing down everything
-                that breaks along the way. Currently learning Terraform, networking, and how
-                the layers actually work.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex gap-4 pt-4"
-            >
-              <a
-                href="https://github.com/D3B-0x0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105"
-                style={{
-                  backgroundColor: "var(--ctp-blue)",
-                  color: "var(--ctp-base)",
-                }}
-              >
-                <span className="font-medium">View GitHub</span>
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-200 hover:scale-105"
-                style={{
-                  backgroundColor: "var(--ctp-surface0)",
-                  color: "var(--ctp-text)",
-                }}
-              >
-                <span className="font-medium">Get in Touch</span>
-              </a>
-            </motion.div>
+            <p className="polaroid-caption">me, probably breaking my own infra</p>
           </div>
         </motion.div>
       </div>

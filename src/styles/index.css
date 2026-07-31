@@ -1,3 +1,129 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+/* --- Scrapbook board utilities (Pinterest-ish, Catppuccin palette) --- */
+
+.display {
+  font-family: 'Lexend', 'Inter', sans-serif;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.eyebrow {
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Paper grain over the flat base color */
+body {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--ctp-overlay0) 22%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* Polaroid-style card */
+.polaroid {
+  background: var(--ctp-mantle);
+  padding: 0.8rem 0.8rem 1.1rem;
+  border: 1px solid var(--ctp-surface0);
+  box-shadow: 0 10px 28px -8px color-mix(in srgb, var(--ctp-crust) 55%, transparent);
+  transform: rotate(var(--tilt, 0deg));
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-4px) scale(1.015);
+  box-shadow: 0 16px 36px -10px color-mix(in srgb, var(--ctp-crust) 65%, transparent);
+  z-index: 5;
+}
+
+.polaroid .polaroid-caption {
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--ctp-subtext0);
+  text-align: center;
+  padding-top: 0.65rem;
+  margin: 0;
+}
+
+/* Washi tape */
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 92px;
+  height: 26px;
+  z-index: 3;
+  opacity: 0.78;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* Sticker tag */
+.sticker {
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  white-space: nowrap;
+}
+
+.sticker:hover {
+  transform: rotate(0deg) scale(1.06);
+  filter: brightness(1.08);
+}
+
+/* Masonry (CSS columns) for the project board */
+.masonry {
+  columns: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .masonry {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    columns: 3;
+  }
+}
+
+.masonry > * {
+  break-inside: avoid;
+  margin: 0 0 1.5rem;
+}
+
+/* Anchored sections clear the fixed nav */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid,
+  .sticker,
+  .tape {
+    transform: none !important;
+    transition: none !important;
+  }
+  body {
+    background-image: none;
+  }
+}

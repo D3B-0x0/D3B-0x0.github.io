@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ExternalLink, FolderGit2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function Projects() {
   const projects = [
@@ -8,7 +8,7 @@ export function Projects() {
       description:
         "Public edge for my self-hosted services — Pangolin (Traefik + Gerbil) reverse proxy, CrowdSec intrusion detection, TLS via Let's Encrypt. SSH locked down to Tailscale only. Being codified in Terraform.",
       tech: ["Docker", "Pangolin/Traefik", "CrowdSec", "Tailscale", "Terraform"],
-      link: "https://pangolin.technoob.me",
+      link: "https://pangolin.debnerd.in",
     },
     {
       title: "Self-Hosted Search",
@@ -47,69 +47,87 @@ export function Projects() {
     },
   ];
 
+  const tilts = ["-2deg", "1.5deg", "-1deg", "2deg", "-1.5deg", "1deg"];
+  const tapes = [
+    "var(--ctp-blue)",
+    "var(--ctp-pink)",
+    "var(--ctp-mauve)",
+    "var(--ctp-teal)",
+    "var(--ctp-peach)",
+    "var(--ctp-lavender)",
+  ];
+
   return (
-    <section id="projects" className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-6xl w-full">
+    <section id="projects" className="px-6 py-24">
+      <div className="max-w-6xl w-full mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
+          className="mb-14"
         >
-          <h2 className="text-4xl font-bold mb-6" style={{ color: "var(--ctp-text)" }}>
+          <span className="eyebrow mb-3 block" style={{ color: "var(--ctp-blue)" }}>
+            the board
+          </span>
+          <h2 className="display text-5xl md:text-6xl" style={{ color: "var(--ctp-text)" }}>
             Projects
           </h2>
-          <div className="h-1 w-20 mb-12" style={{ backgroundColor: "var(--ctp-blue)" }} />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="p-6 rounded-lg transition-all duration-200 hover:scale-[1.02] group"
-                style={{ backgroundColor: "var(--ctp-mantle)" }}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <FolderGit2 className="w-8 h-8" style={{ color: "var(--ctp-blue)" }} />
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="opacity-70 hover:opacity-100 transition-opacity"
-                  >
-                    <ExternalLink className="w-5 h-5" style={{ color: "var(--ctp-subtext0)" }} />
-                  </a>
-                </div>
-
-                <h3 className="text-xl font-semibold mb-3" style={{ color: "var(--ctp-text)" }}>
-                  {project.title}
-                </h3>
-
-                <p className="mb-4 leading-relaxed" style={{ color: "var(--ctp-subtext0)" }}>
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 rounded text-sm font-mono"
-                      style={{
-                        backgroundColor: "var(--ctp-surface0)",
-                        color: "var(--ctp-text)",
-                      }}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
+
+        <div className="masonry">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+              className="polaroid relative"
+              style={{ ["--tilt" as string]: tilts[index % tilts.length] }}
+            >
+              <span
+                className="tape"
+                style={{ backgroundColor: tapes[index % tapes.length], width: "76px" }}
+              />
+
+              <h3 className="font-semibold text-xl mb-2 pr-8" style={{ color: "var(--ctp-text)" }}>
+                {project.title}
+              </h3>
+
+              <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--ctp-subtext0)" }}>
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-5">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="sticker inline-flex"
+                    style={{
+                      color: "var(--ctp-text)",
+                      backgroundColor: "var(--ctp-surface0)",
+                      ["--tilt" as string]: "0deg",
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-sm font-medium transition-colors"
+                style={{ color: "var(--ctp-blue)" }}
+              >
+                view
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
