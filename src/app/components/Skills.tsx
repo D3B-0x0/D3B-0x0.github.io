@@ -4,35 +4,35 @@ export function Skills() {
   const skillCategories = [
     {
       category: "Operating Systems",
-      skills: ["Linux (Fedora, Debian, Arch)", "System Hardening"],
+      skills: ["Fedora (daily driver)", "Debian", "Linux server basics"],
+    },
+    {
+      category: "Shell & Scripting",
+      skills: ["Bash", "Zsh", "systemd", "Git"],
     },
     {
       category: "Containerization",
-      skills: ["Docker", "Docker Compose", "Kubernetes", "Podman"],
+      skills: ["Docker", "Docker Compose", "Tailscale sidecar networking"],
     },
     {
-      category: "Virtualization",
-      skills: ["Proxmox VE", "KVM/QEMU", "VMware", "LXC/Vbox"],
-    },
-    {
-      category: "Cloud Platforms",
-      skills: ["AWS", "GCP", "Infrastructure as Code", "Self Hosted Cloud Technologies"],
+      category: "Cloud & IaC",
+      skills: ["DigitalOcean", "Terraform (learning)", "Cloudflare"],
     },
     {
       category: "Networking",
-      skills: ["TCP/IP", "VLANs", "VPN/Tunnels", "Network Security", "OpenWrt/pfsense"],
-    },
-    {
-      category: "Automation & Tools",
-      skills: ["Ansible", "n8n", "Git", "CI/CD Pipelines"],
+      skills: ["Tailscale / WireGuard", "Reverse proxies", "DNS (Technitium)", "CrowdSec"],
     },
     {
       category: "Self-Hosting",
-      skills: ["Reverse Proxies", "DNS", "Monitoring", "Backup Solutions"],
+      skills: ["Immich", "Vaultwarden", "SearXNG", "Navidrome"],
     },
     {
       category: "Databases",
-      skills: ["PostgreSQL", "MySQL", "Redis", "sqlite"],
+      skills: ["PostgreSQL", "Redis / Valkey", "SQLite"],
+    },
+    {
+      category: "Languages",
+      skills: ["Bash", "C (coursework)", "Java (coursework)", "Python (learning)"],
     },
   ];
 

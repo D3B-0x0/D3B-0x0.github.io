@@ -5,23 +5,23 @@ export function About() {
   const areas = [
     {
       icon: Server,
-      title: "Linux Systems",
-      description: "Deep expertise in enterprise Linux administration and automation",
+      title: "Linux & Shell",
+      description: "Daily-driver Fedora, a Debian VPS, and Zsh tooling — comfortable breaking and fixing my own systems.",
     },
     {
       icon: Cloud,
-      title: "Cloud Infrastructure",
-      description: "Architecting scalable, highly available cloud-native solutions",
+      title: "Cloud & IaC",
+      description: "A DigitalOcean VPS edge (Pangolin, CrowdSec, TLS) being codified in Terraform, one service at a time.",
     },
     {
       icon: Container,
       title: "Containerization",
-      description: "Docker, Kubernetes, and container orchestration at scale",
+      description: "Docker and Compose stacks for everything I self-host — Immich, SearXNG, Vaultwarden — with Tailscale sidecars.",
     },
     {
       icon: Network,
-      title: "Datacenter Networking",
-      description: "Layer 2/3 networking, SDN, and network automation",
+      title: "Networking & VPN",
+      description: "Tailscale/WireGuard, reverse proxies, and DNS (Technitium) — including the CGNAT gotchas learned the hard way.",
     },
   ];
 
@@ -40,10 +40,11 @@ export function About() {
           <div className="h-1 w-20 mb-12" style={{ backgroundColor: "var(--ctp-blue)" }} />
 
           <p className="text-lg mb-16 max-w-3xl leading-relaxed" style={{ color: "var(--ctp-subtext0)" }}>
-            I specialize in building and maintaining production infrastructure that scales. 
-            My focus is on automation, reliability, and creating infrastructure that engineers 
-            can trust. From bare-metal deployments to cloud-native architectures, I architect 
-            systems that perform under pressure.
+            I'm a BCA student from Kolkata working toward cloud engineering and SRE. I learn by
+            building and breaking — this site is backed by a stack I run myself: Immich for
+            photos, SearXNG for search, Vaultwarden for passwords, all behind a VPS edge managed
+            with Pangolin, CrowdSec, and Terraform. I prefer understanding the low level before
+            trusting the high level.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

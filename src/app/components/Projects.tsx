@@ -4,46 +4,46 @@ import { ExternalLink, FolderGit2 } from "lucide-react";
 export function Projects() {
   const projects = [
     {
-      title: "Homelab Infrastructure",
+      title: "VPS Edge Gateway",
       description:
-        "Production-grade homelab running on Proxmox with automated deployments, monitoring, and backup solutions. Includes containerized services, network segmentation, and disaster recovery.",
-      tech: ["Proxmox", "Docker", "Ansible", "Prometheus"],
+        "Public edge for my self-hosted services — Pangolin (Traefik + Gerbil) reverse proxy, CrowdSec intrusion detection, TLS via Let's Encrypt. SSH locked down to Tailscale only. Being codified in Terraform.",
+      tech: ["Docker", "Pangolin/Traefik", "CrowdSec", "Tailscale", "Terraform"],
+      link: "https://pangolin.technoob.me",
+    },
+    {
+      title: "Self-Hosted Search",
+      description:
+        "My own SearXNG instance running on the VPS with a Valkey cache — the search backend behind everything I do, with no third-party search trackers.",
+      tech: ["Docker", "SearXNG", "Valkey"],
+      link: "https://searx.debnerd.in",
+    },
+    {
+      title: "Homelab Docs",
+      description:
+        "Documentation of my self-hosting journey — what I built, what broke, and what I learned. The failures are the whole point.",
+      tech: ["Markdown", "Obsidian"],
+      link: "https://github.com/D3B-0x0/homelab",
+    },
+    {
+      title: "Dotfiles",
+      description:
+        "Version-controlled configuration for my daily-driver Linux setup — Zsh, Hyprland, and tooling, synced declaratively via a single script.",
+      tech: ["Bash", "Zsh", "Git"],
+      link: "https://github.com/D3B-0x0/dotfiles",
+    },
+    {
+      title: "Immich",
+      description:
+        "Self-hosted photo backup with a Tailscale sidecar and no host ports exposed — ~64GB of photos and growing, reachable only over my tailnet.",
+      tech: ["Docker Compose", "PostgreSQL", "Tailscale"],
       link: "https://github.com/D3B-0x0",
     },
     {
-      title: "Self-Hosted Platform",
+      title: "This Website",
       description:
-        "Complete self-hosted infrastructure stack including CI/CD, container registry, monitoring, logging, and collaborative tools. Designed for privacy and full data ownership.",
-      tech: ["GitLab", "Harbor", "Grafana", "ELK Stack"],
-      link: "https://github.com/D3B-0x0",
-    },
-    {
-      title: "Network Automation Framework",
-      description:
-        "Automated network configuration and management system for datacenter environments. Handles VLAN provisioning, firewall rules, and network monitoring at scale.",
-      tech: ["Python", "Netmiko", "YAML", "pfSense API"],
-      link: "https://github.com/D3B-0x0",
-    },
-    {
-      title: "Infrastructure as Code",
-      description:
-        "Terraform modules and Ansible playbooks for deploying multi-cloud infrastructure. Includes automated provisioning, configuration management, and compliance checks.",
-      tech: ["Terraform", "Ansible", "AWS", "Azure"],
-      link: "https://github.com/D3B-0x0",
-    },
-    {
-      title: "Container Orchestration Lab",
-      description:
-        "Kubernetes cluster setup with service mesh, automated certificate management, and GitOps deployment workflows. Includes monitoring, logging, and backup automation.",
-      tech: ["Kubernetes", "Helm", "ArgoCD", "Istio"],
-      link: "https://github.com/D3B-0x0",
-    },
-    {
-      title: "Datacenter Monitoring Suite",
-      description:
-        "Comprehensive monitoring and alerting system for physical and virtual infrastructure. Tracks performance metrics, logs, and provides real-time dashboards.",
-      tech: ["Prometheus", "Grafana", "Telegraf", "Alert Manager"],
-      link: "https://github.com/D3B-0x0",
+        "Started as a Figma export, rewritten to say what I actually do. A project I'm continuously improving as I learn.",
+      tech: ["React", "Vite", "Tailwind"],
+      link: "https://github.com/D3B-0x0/D3B-0x0.github.io",
     },
   ];
 

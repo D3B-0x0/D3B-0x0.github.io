@@ -55,7 +55,7 @@ export function Navigation() {
           className="font-mono font-semibold text-lg"
           style={{ color: "var(--ctp-blue)" }}
         >
-          Welcome✨️
+          ghost
         </a>
 
         <div className="hidden md:flex items-center gap-8">

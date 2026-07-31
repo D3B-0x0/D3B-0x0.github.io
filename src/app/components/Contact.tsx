@@ -18,8 +18,8 @@ export function Contact() {
           <div className="h-1 w-20 mb-12 mx-auto" style={{ backgroundColor: "var(--ctp-blue)" }} />
 
           <p className="text-lg mb-12 max-w-2xl mx-auto" style={{ color: "var(--ctp-subtext0)" }}>
-            Interested in discussing infrastructure, cloud architecture, or potential collaboration? 
-            Feel free to reach out through GitHub.
+            I'm a student building toward a career in cloud and SRE. If you've got advice,
+            corrections, or just want to talk infrastructure — reach out.
           </p>
 
           <motion.div
@@ -53,7 +53,7 @@ export function Contact() {
             style={{ borderColor: "var(--ctp-surface0)" }}
           >
             <p className="font-mono text-sm" style={{ color: "var(--ctp-subtext0)" }}>
-              © 2026 Deb (ghost). Built with modern web technologies.
+              © 2026 Deb (ghost). Built with React, Vite & Tailwind.
             </p>
           </motion.div>
         </motion.div>
