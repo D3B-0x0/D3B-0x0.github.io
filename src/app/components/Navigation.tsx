@@ -80,6 +80,11 @@ export function Navigation() {
             ["--tilt" as string]: "-1.5deg",
           }}
         >
+          <img
+            src="/logo.svg"
+            alt=""
+            className="w-5 h-5"
+          />
           ghost
         </a>
 
