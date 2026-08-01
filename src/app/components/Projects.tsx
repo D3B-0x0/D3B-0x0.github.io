@@ -18,6 +18,13 @@ export function Projects() {
       link: "https://searx.debnerd.in",
     },
     {
+      title: "IT-Tools",
+      description:
+        "A collection of handy developer utilities — encoders, converters, generators — self-hosted at tools.debnerd.in.",
+      tech: ["Docker", "Vue.js"],
+      link: "https://tools.debnerd.in",
+    },
+    {
       title: "Homelab Docs",
       description:
         "Documentation of my self-hosting journey — what I built, what broke, and what I learned. The failures are the whole point.",
@@ -34,7 +41,7 @@ export function Projects() {
     {
       title: "Immich",
       description:
-        "Self-hosted photo backup with a Tailscale sidecar and no host ports exposed — ~64GB of photos and growing, reachable only over my tailnet.",
+        "Self-hosted photo backup with a Tailscale sidecar and no host ports exposed — terabytes of photos and growing, reachable only over my tailnet.",
       tech: ["Docker Compose", "PostgreSQL", "Tailscale"],
       link: "https://github.com/D3B-0x0",
     },
