@@ -25,11 +25,11 @@ export function Projects() {
       link: "https://tools.debnerd.in",
     },
     {
-      title: "Homelab Docs",
+      title: "Homelab Blog",
       description:
         "Documentation of my self-hosting journey — what I built, what broke, and what I learned. The failures are the whole point.",
       tech: ["Markdown", "Obsidian"],
-      link: "https://github.com/D3B-0x0/homelab",
+      link: "https://blog.debnerd.in/",
     },
     {
       title: "Dotfiles",
