@@ -20,8 +20,9 @@ export default defineConfig({
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
 
-  // Base path for GitHub Pages
-  base: process.env.NODE_ENV === 'production' ? '/D3B-0x0.github.io/' : '/',
+  // Site is served at the root of the custom domain (aboutme.debnerd.in)
+  // via CNAME to d3b-0x0.github.io, so assets are root-relative.
+  base: '/',
 
   build: {
     outDir: 'dist',
