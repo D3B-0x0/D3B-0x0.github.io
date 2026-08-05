@@ -11,7 +11,7 @@ export function About() {
     {
       icon: Cloud,
       title: "Cloud & IaC",
-      description: "A DigitalOcean VPS edge (Pangolin, CrowdSec, TLS) being codified in Terraform, one service at a time.",
+      description: "A DigitalOcean VPS edge (NetBird, CrowdSec, TLS) being codified in Terraform, one service at a time.",
     },
     {
       icon: Container,
@@ -55,7 +55,7 @@ export function About() {
               I'm a BCA student from Durgapur working toward cloud engineering and SRE. I
               learn by building and breaking — this site is backed by a stack I run
               myself: Immich for photos, SearXNG for search, Vaultwarden for passwords,
-              all behind a VPS edge managed with Pangolin, CrowdSec, and Terraform.
+              all behind a VPS edge managed with NetBird, CrowdSec, and Terraform.
             </p>
             <p className="display italic text-2xl leading-snug" style={{ color: "var(--ctp-mauve)" }}>
               "I prefer understanding the low level before trusting the high level."

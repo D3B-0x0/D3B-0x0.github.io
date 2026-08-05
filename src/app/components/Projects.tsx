@@ -6,9 +6,9 @@ export function Projects() {
     {
       title: "VPS Edge Gateway",
       description:
-        "Public edge for my self-hosted services — Pangolin (Traefik + Gerbil) reverse proxy, CrowdSec intrusion detection, TLS via Let's Encrypt. SSH locked down to Tailscale only. Being codified in Terraform.",
-      tech: ["Docker", "Pangolin/Traefik", "CrowdSec", "Tailscale", "Terraform"],
-      link: "https://pangolin.debnerd.in",
+        "Public edge for my self-hosted services — NetBird mesh VPN with a built-in reverse proxy, CrowdSec intrusion detection and WAF, TLS via Let's Encrypt. Being codified in Terraform.",
+      tech: ["Docker", "NetBird", "CrowdSec", "Terraform"],
+      link: "https://vpn.debnerd.in",
     },
     {
       title: "Self-Hosted Search",
