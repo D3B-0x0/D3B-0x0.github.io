@@ -4,11 +4,18 @@ import { ArrowUpRight } from "lucide-react";
 export function Projects() {
   const projects = [
     {
+      title: "Self-Hosted Control Plane",
+      description:
+        "My own Tailscale-compatible mesh control plane — headscale with Headplane as the management UI. Devices (laptop, phone, VPS, tablet) join my tailnet with zero third-party coordination servers. Google OIDC single sign-on, ACLs enforced in the database. Replaced a commercial mesh VPN provider entirely.",
+      tech: ["Headscale", "Headplane", "Tailscale", "OIDC"],
+      link: "https://headscale.debnerd.in",
+    },
+    {
       title: "VPS Edge Gateway",
       description:
-        "Public edge for my self-hosted services — NetBird mesh VPN with a built-in reverse proxy, CrowdSec intrusion detection and WAF, TLS via Let's Encrypt. Being codified in Terraform.",
-      tech: ["Docker", "NetBird", "CrowdSec", "Terraform"],
-      link: "https://vpn.debnerd.in",
+        "Public edge for my self-hosted services — Caddy reverse proxy, CrowdSec intrusion detection and WAF (firewall + Docker log analysis), TLS via Let's Encrypt. Being codified in Terraform.",
+      tech: ["Docker", "Caddy", "CrowdSec", "Terraform"],
+      link: "https://tools.debnerd.in",
     },
     {
       title: "Self-Hosted Search",

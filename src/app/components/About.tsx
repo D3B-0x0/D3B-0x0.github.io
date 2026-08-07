@@ -11,7 +11,7 @@ export function About() {
     {
       icon: Cloud,
       title: "Cloud & IaC",
-      description: "A DigitalOcean VPS edge (NetBird, CrowdSec, TLS) being codified in Terraform, one service at a time.",
+      description: "A DigitalOcean VPS edge (Caddy, CrowdSec, TLS) being codified in Terraform, one service at a time.",
     },
     {
       icon: Container,
@@ -21,7 +21,7 @@ export function About() {
     {
       icon: Network,
       title: "Networking & VPN",
-      description: "Tailscale/WireGuard, reverse proxies, and DNS (Technitium) — including the CGNAT gotchas learned the hard way.",
+      description: "A self-hosted Tailscale-compatible control plane (headscale + Headplane) I run myself — my own mesh VPN with zero third-party coordination servers, plus reverse proxies and DNS.",
     },
   ];
 
@@ -55,7 +55,8 @@ export function About() {
               I'm a BCA student from Durgapur working toward cloud engineering and SRE. I
               learn by building and breaking — this site is backed by a stack I run
               myself: Immich for photos, SearXNG for search, Vaultwarden for passwords,
-              all behind a VPS edge managed with NetBird, CrowdSec, and Terraform.
+              all on a tailnet served by my own headscale control plane, behind a VPS
+              edge managed with Caddy, CrowdSec, and Terraform.
             </p>
             <p className="display italic text-2xl leading-snug" style={{ color: "var(--ctp-mauve)" }}>
               "I prefer understanding the low level before trusting the high level."
@@ -85,7 +86,7 @@ export function About() {
               <ul className="space-y-3 font-mono text-sm" style={{ color: "var(--ctp-crust)" }}>
                 {[
                   "Terraform & IaC",
-                  "Networking (CGNAT, WireGuard, DNS)",
+                  "Networking (CGNAT, WireGuard, headscale)",
                   "Docker internals",
                   "Python",
                   "How the layers actually work",

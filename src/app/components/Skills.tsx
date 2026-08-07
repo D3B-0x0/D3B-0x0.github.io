@@ -31,7 +31,7 @@ export function Skills() {
     },
     {
       category: "Networking",
-      skills: ["Tailscale / WireGuard", "Reverse proxies", "DNS (Technitium)", "CrowdSec"],
+      skills: ["Tailscale / WireGuard", "Headscale (self-hosted control plane)", "Reverse proxies", "DNS (AdGuard Home)", "CrowdSec"],
     },
     {
       category: "Self-Hosting",
