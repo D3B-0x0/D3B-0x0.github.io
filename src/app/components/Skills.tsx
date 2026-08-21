@@ -27,7 +27,7 @@ export function Skills() {
     },
     {
       category: "Cloud & IaC",
-      skills: ["DigitalOcean", "Terraform (learning)", "Cloudflare"],
+      skills: ["DigitalOcean", "Cloudflare"],
     },
     {
       category: "Networking",

@@ -20,9 +20,9 @@ export function Projects() {
     {
       title: "VPS Edge Gateway",
       description:
-        "Public edge for my self-hosted services — Caddy reverse proxy, CrowdSec intrusion detection and WAF (firewall + Docker log analysis), TLS via Let's Encrypt. Being codified in Terraform.",
-      tech: ["Docker", "Caddy", "CrowdSec", "Terraform"],
-      link: "https://searx.debnerd.in",
+        "Public edge for my self-hosted services — Caddy reverse proxy, CrowdSec intrusion detection and WAF (firewall + Docker log analysis), TLS via Let's Encrypt.",
+      tech: ["Docker", "Caddy", "CrowdSec"],
+      link: "https://caddyserver.com",
     },
     {
       title: "Self-Hosted Search",
@@ -57,7 +57,7 @@ export function Projects() {
       description:
         "Self-hosted photo backup with a Tailscale sidecar and no host ports exposed — terabytes of photos and growing, reachable only over my tailnet.",
       tech: ["Docker Compose", "PostgreSQL", "Tailscale"],
-      link: "https://github.com/D3B-0x0",
+      link: "https://immich.app",
     },
     {
       title: "This Website",

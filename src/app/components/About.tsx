@@ -11,7 +11,7 @@ export function About() {
     {
       icon: Cloud,
       title: "Cloud & IaC",
-      description: "A DigitalOcean VPS edge (Caddy, CrowdSec, TLS) being codified in Terraform, one service at a time.",
+      description: "A DigitalOcean VPS edge — Caddy, CrowdSec, TLS via Let's Encrypt. All running on Docker.",
     },
     {
       icon: Container,
