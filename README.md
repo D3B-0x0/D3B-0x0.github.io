@@ -29,6 +29,8 @@ npm run build
 
 This site is automatically deployed to GitHub Pages via GitHub Actions on every push to `main`.
 
+Primary repo: Forgejo → mirrored to GitHub.
+
 ## 📄 License
 
 © 2026 Deb. All rights reserved.
