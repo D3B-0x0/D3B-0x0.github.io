@@ -8,14 +8,21 @@ export function Projects() {
       description:
         "My own Tailscale-compatible mesh control plane — headscale with Headplane as the management UI. Devices (laptop, phone, VPS, tablet) join my tailnet with zero third-party coordination servers. Google OIDC single sign-on, ACLs enforced in the database. Replaced a commercial mesh VPN provider entirely.",
       tech: ["Headscale", "Headplane", "Tailscale", "OIDC"],
-      link: "https://headplane.net",
+      link: "https://headscale.debnerd.in",
+    },
+    {
+      title: "Self-Hosted Git Forge",
+      description:
+        "My own Forgejo instance with DinD-based CI/CD runners, Google & GitHub OIDC login, and push mirroring to GitHub. Friends can sign up and push code — a full self-hosted alternative to GitHub.",
+      tech: ["Forgejo", "Docker-in-Docker", "CI/CD", "OIDC"],
+      link: "https://git.debnerd.in",
     },
     {
       title: "VPS Edge Gateway",
       description:
         "Public edge for my self-hosted services — Caddy reverse proxy, CrowdSec intrusion detection and WAF (firewall + Docker log analysis), TLS via Let's Encrypt. Being codified in Terraform.",
       tech: ["Docker", "Caddy", "CrowdSec", "Terraform"],
-      link: "https://headscale.debnerd.in/health",
+      link: "https://searx.debnerd.in",
     },
     {
       title: "Self-Hosted Search",
@@ -25,18 +32,18 @@ export function Projects() {
       link: "https://searx.debnerd.in",
     },
     {
+      title: "Homelab Blog",
+      description:
+        "Documentation of my self-hosting journey — what I built, what broke, and what I learned. The failures are the whole point.",
+      tech: ["Astro", "Markdown", "GitHub Pages"],
+      link: "https://blog.debnerd.in/",
+    },
+    {
       title: "IT-Tools",
       description:
         "A collection of handy developer utilities — encoders, converters, generators — self-hosted at tools.debnerd.in.",
       tech: ["Docker", "Vue.js"],
       link: "https://tools.debnerd.in",
-    },
-    {
-      title: "Homelab Blog",
-      description:
-        "Documentation of my self-hosting journey — what I built, what broke, and what I learned. The failures are the whole point.",
-      tech: ["Markdown", "Obsidian"],
-      link: "https://blog.debnerd.in/",
     },
     {
       title: "Dotfiles",
@@ -55,9 +62,9 @@ export function Projects() {
     {
       title: "This Website",
       description:
-        "Started as a Figma export, rewritten to say what I actually do. A project I'm continuously improving as I learn.",
+        "Started as a Figma export, rewritten to say what I actually do. Hosted on Forgejo, deployed to GitHub Pages.",
       tech: ["React", "Vite", "Tailwind"],
-      link: "https://github.com/D3B-0x0/D3B-0x0.github.io",
+      link: "https://git.debnerd.in/d3b/website",
     },
   ];
 

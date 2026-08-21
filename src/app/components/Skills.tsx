@@ -31,11 +31,11 @@ export function Skills() {
     },
     {
       category: "Networking",
-      skills: ["Tailscale / WireGuard", "Headscale (self-hosted control plane)", "Reverse proxies", "DNS (AdGuard Home)", "CrowdSec"],
+      skills: ["Tailscale / WireGuard", "Headscale (self-hosted control plane)", "Reverse proxies", "DNS (Cloudflare)", "CrowdSec"],
     },
     {
       category: "Self-Hosting",
-      skills: ["Immich", "Vaultwarden", "SearXNG", "Navidrome"],
+      skills: ["Immich", "Vaultwarden", "SearXNG", "Forgejo", "Docker-in-Docker CI/CD"],
     },
     {
       category: "Databases",

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Server, Cloud, Container, Network, Pin } from "lucide-react";
+import { Server, Cloud, Container, Network, Pin, GitBranch } from "lucide-react";
 
 export function About() {
   const areas = [
@@ -19,9 +19,9 @@ export function About() {
       description: "Docker and Compose stacks for everything I self-host — Immich, SearXNG, Vaultwarden — with Tailscale sidecars.",
     },
     {
-      icon: Network,
-      title: "Networking & VPN",
-      description: "A self-hosted Tailscale-compatible control plane (headscale + Headplane) I run myself — my own mesh VPN with zero third-party coordination servers, plus reverse proxies and DNS.",
+      icon: GitBranch,
+      title: "DevOps & CI/CD",
+      description: "Self-hosted Forgejo with Docker-in-Docker runners, GitHub Actions mirroring, and automated pipelines — my own GitHub alternative.",
     },
   ];
 
@@ -55,8 +55,8 @@ export function About() {
               I'm a BCA student from Durgapur working toward cloud engineering and SRE. I
               learn by building and breaking — this site is backed by a stack I run
               myself: Immich for photos, SearXNG for search, Vaultwarden for passwords,
-              all on a tailnet served by my own headscale control plane, behind a VPS
-              edge managed with Caddy, CrowdSec, and Terraform.
+              Forgejo for code, all on a tailnet served by my own headscale control plane,
+              behind a VPS edge managed with Caddy, CrowdSec, and Terraform.
             </p>
             <p className="display italic text-2xl leading-snug" style={{ color: "var(--ctp-mauve)" }}>
               "I prefer understanding the low level before trusting the high level."
