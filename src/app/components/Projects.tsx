@@ -50,7 +50,7 @@ export function Projects() {
       description:
         "Version-controlled configuration for my daily-driver Linux setup — Zsh, Hyprland, and tooling, synced declaratively via a single script.",
       tech: ["Bash", "Zsh", "Git"],
-      link: "https://github.com/D3B-0x0/dotfiles",
+      link: "https://git.debnerd.in/d3b/dotfiles",
     },
     {
       title: "Immich",
