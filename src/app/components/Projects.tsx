@@ -2,6 +2,29 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 
 export function Projects() {
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  // Define motion props based on preference
+  const motionProps = prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-80px" },
+        transition: { duration: 0.5 }
+      };
+
+  // Define motion props for project items with delay
+  const motionProjectProps = (index: number) => prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 24 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-50px" },
+        transition: { duration: 0.5, delay: (index % 3) * 0.08 }
+      };
+
   const projects = [
     {
       title: "Self-Hosted Control Plane",
@@ -22,7 +45,7 @@ export function Projects() {
       description:
         "Public edge for my self-hosted services — Caddy reverse proxy, CrowdSec intrusion detection and WAF (firewall + Docker log analysis), TLS via Let's Encrypt.",
       tech: ["Docker", "Caddy", "CrowdSec"],
-      link: "https://caddyserver.com",
+      link: "https://blog.debnerd.in",
     },
     {
       title: "Self-Hosted Search",
@@ -57,7 +80,7 @@ export function Projects() {
       description:
         "Self-hosted photo backup with a Tailscale sidecar and no host ports exposed — terabytes of photos and growing, reachable only over my tailnet.",
       tech: ["Docker Compose", "PostgreSQL", "Tailscale"],
-      link: "https://immich.app",
+      link: "https://blog.debnerd.in",
     },
     {
       title: "This Website",
@@ -82,10 +105,7 @@ export function Projects() {
     <section id="projects" className="px-6 py-24">
       <div className="max-w-6xl w-full mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          {...motionProps}
           className="mb-14"
         >
           <span className="eyebrow mb-3 block" style={{ color: "var(--ctp-blue)" }}>
@@ -100,10 +120,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+              {...motionProjectProps(index)}
               className="polaroid relative"
               style={{ ["--tilt" as string]: tilts[index % tilts.length] }}
             >

@@ -12,6 +12,29 @@ const accentColors = [
 ];
 
 export function Skills() {
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  // Define motion props based on preference
+  const motionProps = prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-80px" },
+        transition: { duration: 0.5 }
+      };
+
+  // Define motion props for skill categories with delay
+  const motionCategoryProps = (index: number) => prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 16 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-50px" },
+        transition: { duration: 0.4, delay: index * 0.05 }
+      };
+
   const skillCategories = [
     {
       category: "Operating Systems",
@@ -27,15 +50,15 @@ export function Skills() {
     },
     {
       category: "Cloud & IaC",
-      skills: ["DigitalOcean", "Cloudflare"],
+      skills: ["DigitalOcean", "Cloudflare", "Caddy", "CrowdSec", "Terraform"],
     },
     {
       category: "Networking",
-      skills: ["Tailscale / WireGuard", "Headscale (self-hosted control plane)", "Reverse proxies", "DNS (Cloudflare)", "CrowdSec"],
+      skills: ["Tailscale / WireGuard", "Headscale (self-hosted control plane)", "Reverse proxies", "DNS (Cloudflare)", "CrowdSec", "Headplane"],
     },
     {
       category: "Self-Hosting",
-      skills: ["Immich", "Vaultwarden", "SearXNG", "Forgejo", "Docker-in-Docker CI/CD"],
+      skills: ["Immich", "Vaultwarden", "SearXNG", "Forgejo", "Docker-in-Docker CI/CD", "Beszel", "Homepage", "Uptime Kuma", "Headplane"],
     },
     {
       category: "Databases",
@@ -53,10 +76,7 @@ export function Skills() {
     <section id="skills" className="px-6 py-24">
       <div className="max-w-6xl w-full mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          {...motionProps}
         >
           <span className="eyebrow mb-3 block" style={{ color: "var(--ctp-pink)" }}>
             tools of the trade
@@ -70,10 +90,7 @@ export function Skills() {
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.category}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              {...motionCategoryProps(index)}
             >
               <h3
                 className="eyebrow mb-4 flex items-center gap-3"

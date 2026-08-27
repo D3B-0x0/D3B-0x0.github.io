@@ -70,7 +70,13 @@ export function Contact() {
                 color: "var(--ctp-base)",
                 backgroundColor: "var(--ctp-mauve)",
                 ["--tilt" as string]: "1deg",
+                cursor: "pointer",
               }}
+              onClick={() => {
+                navigator.clipboard.writeText('@pingnoob');
+                alert('Discord handle copied to clipboard!');
+              }}
+              title="Click to copy Discord handle: @pingnoob"
             >
               <DiscordIcon className="w-5 h-5" />
               @pingnoob
@@ -115,7 +121,7 @@ export function Contact() {
           style={{ borderColor: "var(--ctp-surface0)" }}
         >
           <p className="font-mono text-sm" style={{ color: "var(--ctp-subtext0)" }}>
-            © 2026 Deb (ghost). Built with React, Vite &amp; Tailwind.
+            © {new Date().getFullYear()} Deb (ghost). Built with React, Vite & Tailwind.
           </p>
         </motion.div>
       </div>

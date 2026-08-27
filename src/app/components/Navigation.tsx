@@ -5,6 +5,18 @@ import { Menu, X } from "lucide-react";
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
+  
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  // Define motion props based on preference
+  const motionProps = prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: -16 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.4, ease: "easeOut" }
+      };
 
   const navItems = [
     { id: "about", label: "About" },
@@ -60,9 +72,7 @@ export function Navigation() {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      {...motionProps}
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-md"
       style={{
         backgroundColor: "color-mix(in srgb, var(--ctp-base) 82%, transparent)",

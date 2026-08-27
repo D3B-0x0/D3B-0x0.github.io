@@ -3,6 +3,27 @@ import { ArrowUpRight } from "lucide-react";
 import profileImage from "../../assets/me.jpg";
 
 export function Hero() {
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  // Define motion props based on preference
+  const motionProps = prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: "easeOut" }
+      };
+
+  // Define motion props with delay for specific elements
+  const motionPropsWithDelay = (delay: number) => prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, delay, ease: "easeOut" }
+      };
+
   return (
     <section
       id="hero"
@@ -11,9 +32,7 @@ export function Hero() {
       <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
         {/* Copy */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          {...motionProps}
         >
           <span
             className="eyebrow px-3 py-1.5 rounded-md inline-block mb-8"
@@ -63,9 +82,7 @@ export function Hero() {
 
         {/* Polaroid portrait */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          {...motionPropsWithDelay(0.15)}
           className="relative justify-self-center lg:justify-self-end w-full max-w-xs md:max-w-sm"
         >
           <span className="tape" style={{ backgroundColor: "var(--ctp-lavender)" }} />

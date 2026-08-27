@@ -2,6 +2,29 @@ import { motion } from "motion/react";
 import { Server, Cloud, Container, Network, Pin, GitBranch } from "lucide-react";
 
 export function About() {
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  
+  // Define motion props based on preference
+  const motionProps = prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-80px" },
+        transition: { duration: 0.5 }
+      };
+
+  // Define motion props with delay for specific elements
+  const motionPropsWithDelay = (delay: number) => prefersReducedMotion 
+    ? {} 
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-80px" },
+        transition: { duration: 0.5, delay }
+      };
+
   const areas = [
     {
       icon: Server,
@@ -29,10 +52,7 @@ export function About() {
     <section id="about" className="px-6 py-24">
       <div className="max-w-6xl w-full mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          {...motionProps}
         >
           <span className="eyebrow mb-3 block" style={{ color: "var(--ctp-lavender)" }}>
             about
@@ -45,10 +65,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mb-16">
           {/* Narrative */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            {...motionPropsWithDelay(0.1)}
             className="space-y-6"
           >
             <p className="text-lg leading-relaxed" style={{ color: "var(--ctp-subtext0)" }}>
@@ -65,10 +82,7 @@ export function About() {
 
           {/* Pinned sticky note */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            {...motionPropsWithDelay(0.2)}
             className="relative"
           >
             <div
@@ -106,10 +120,7 @@ export function About() {
           {areas.map((area, index) => (
             <motion.div
               key={area.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
+              {...motionPropsWithDelay(index * 0.08)}
               className="polaroid relative h-full"
               style={{ ["--tilt" as string]: `${index % 2 === 0 ? 1 : -1.5}deg` }}
             >
