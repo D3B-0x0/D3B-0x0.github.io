@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { SITE } from "../../config";
 
 export function Navigation() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -118,7 +119,7 @@ export function Navigation() {
 
         <div className="hidden md:block">
           <a
-            href="https://github.com/D3B-0x0"
+            href={`https://github.com/${SITE.github}`}
             target="_blank"
             rel="noopener noreferrer"
             className="sticker inline-flex"
@@ -186,7 +187,7 @@ export function Navigation() {
                 </a>
               ))}
               <a
-                href="https://github.com/D3B-0x0"
+                href={`https://github.com/${SITE.github}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}

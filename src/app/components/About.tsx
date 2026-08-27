@@ -73,7 +73,7 @@ export function About() {
               learn by building and breaking — this site is backed by a stack I run
               myself: Immich for photos, SearXNG for search, Vaultwarden for passwords,
               Forgejo for code, all on a tailnet served by my own headscale control plane,
-              behind a VPS edge managed with Caddy, CrowdSec, and Terraform.
+              behind a VPS edge managed with Caddy and CrowdSec.
             </p>
             <p className="display italic text-2xl leading-snug" style={{ color: "var(--ctp-mauve)" }}>
               "I prefer understanding the low level before trusting the high level."
@@ -99,7 +99,6 @@ export function About() {
               </p>
               <ul className="space-y-3 font-mono text-sm" style={{ color: "var(--ctp-crust)" }}>
                 {[
-                  "Terraform & IaC",
                   "Networking (CGNAT, WireGuard, headscale)",
                   "Docker internals",
                   "Python",

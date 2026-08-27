@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import profileImage from "../../assets/me.jpg";
+import { SITE } from "../../config";
 
 export function Hero() {
   // Check if user prefers reduced motion
@@ -61,7 +62,7 @@ export function Hero() {
 
           <div className="flex flex-wrap gap-4">
             <a
-              href="https://github.com/D3B-0x0"
+              href={`https://github.com/${SITE.github}`}
               target="_blank"
               rel="noopener noreferrer"
               className="sticker inline-flex px-6 py-3 text-sm"

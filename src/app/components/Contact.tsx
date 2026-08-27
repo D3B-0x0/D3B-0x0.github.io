@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Github, Mail, Linkedin, AtSign } from "lucide-react";
+import { SITE } from "../../config";
 
 function DiscordIcon({ className }: { className?: string }) {
   return (
@@ -38,77 +39,77 @@ export function Contact() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="flex flex-col sm:flex-row gap-5 justify-center items-center"
           >
-            <a
-              href="https://github.com/D3B-0x0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sticker inline-flex px-8 py-4 text-sm"
-              style={{
-                color: "var(--ctp-base)",
-                backgroundColor: "var(--ctp-blue)",
-                ["--tilt" as string]: "-1deg",
-              }}
-            >
-              <Github className="w-5 h-5" />
-              D3B-0x0
-            </a>
-            <a
-              href="mailto:d3b@tutamail.com"
-              className="sticker inline-flex px-8 py-4 text-sm"
-              style={{
-                color: "var(--ctp-crust)",
-                backgroundColor: "var(--ctp-green)",
-                ["--tilt" as string]: "0.5deg",
-              }}
-            >
-              <Mail className="w-5 h-5" />
-              d3b@tutamail.com
-            </a>
-            <span
-              className="sticker inline-flex px-8 py-4 text-sm"
-              style={{
-                color: "var(--ctp-base)",
-                backgroundColor: "var(--ctp-mauve)",
-                ["--tilt" as string]: "1deg",
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                navigator.clipboard.writeText('@pingnoob');
-                alert('Discord handle copied to clipboard!');
-              }}
-              title="Click to copy Discord handle: @pingnoob"
-            >
-              <DiscordIcon className="w-5 h-5" />
-              @pingnoob
-            </span>
-            <a
-              href="https://www.linkedin.com/in/deb69420/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sticker inline-flex px-8 py-4 text-sm"
-              style={{
-                color: "var(--ctp-base)",
-                backgroundColor: "var(--ctp-blue)",
-                ["--tilt" as string]: "-0.5deg",
-              }}
-            >
-              <Linkedin className="w-5 h-5" />
-              deb69420
-            </a>
-            <a
-              href="https://mastodon.social/@deb69420"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sticker inline-flex px-8 py-4 text-sm"
-              style={{
-                color: "var(--ctp-base)",
-                backgroundColor: "var(--ctp-peach)",
-                ["--tilt" as string]: "0.5deg",
-              }}
-            >
-              <AtSign className="w-5 h-5" />
-              @deb69420
-            </a>
+<a
+  href={`https://github.com/${SITE.github}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="sticker inline-flex px-8 py-4 text-sm"
+  style={{
+    color: "var(--ctp-base)",
+    backgroundColor: "var(--ctp-blue)",
+    ["--tilt" as string]: "-1deg",
+  }}
+>
+  <Github className="w-5 h-5" />
+  {SITE.github}
+</a>
+<a
+  href={`mailto:${SITE.email}`}
+  className="sticker inline-flex px-8 py-4 text-sm"
+  style={{
+    color: "var(--ctp-crust)",
+    backgroundColor: "var(--ctp-green)",
+    ["--tilt" as string]: "0.5deg",
+  }}
+>
+  <Mail className="w-5 h-5" />
+  {SITE.email}
+</a>
+<span
+  className="sticker inline-flex px-8 py-4 text-sm"
+  style={{
+    color: "var(--ctp-base)",
+    backgroundColor: "var(--ctp-mauve)",
+    ["--tilt" as string]: "1deg",
+    cursor: "pointer",
+  }}
+  onClick={() => {
+    navigator.clipboard.writeText(SITE.discord);
+    alert('Discord handle copied to clipboard!');
+  }}
+  title={`Click to copy Discord handle: ${SITE.discord}`}
+>
+  <DiscordIcon className="w-5 h-5" />
+  {SITE.discord}
+</span>
+<a
+  href="https://www.linkedin.com/in/${SITE.linkedin}/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="sticker inline-flex px-8 py-4 text-sm"
+  style={{
+    color: "var(--ctp-base)",
+    backgroundColor: "var(--ctp-blue)",
+    ["--tilt" as string]: "-0.5deg",
+  }}
+>
+  <Linkedin className="w-5 h-5" />
+  {SITE.linkedin}
+</a>
+<a
+  href={`https://mastodon.social/${SITE.mastodon}`}
+  target="_blank"
+  rel="me noopener noreferrer"
+  className="sticker inline-flex px-8 py-4 text-sm"
+  style={{
+    color: "var(--ctp-base)",
+    backgroundColor: "var(--ctp-peach)",
+    ["--tilt" as string]: "0.5deg",
+  }}
+>
+  <AtSign className="w-5 h-5" />
+  {SITE.mastodon}
+</a>
           </motion.div>
         </motion.div>
 
