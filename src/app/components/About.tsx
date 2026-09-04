@@ -34,12 +34,12 @@ export function About() {
     {
       icon: Cloud,
       title: "Cloud & IaC",
-      description: "A DigitalOcean VPS edge — Caddy, CrowdSec, TLS via Let's Encrypt. All running on Docker.",
+      description: "An Azure VM edge — Pangolin, Tailscale mesh, TLS via Let's Encrypt. All running on Docker.",
     },
     {
       icon: Container,
       title: "Containerization",
-      description: "Docker and Compose stacks for everything I self-host — Immich, SearXNG, Vaultwarden — with Tailscale sidecars.",
+      description: "Docker and Compose stacks for everything I self-host — Immich, SearXNG, Vaultwarden, Forgejo — on a private Tailscale tailnet.",
     },
     {
       icon: GitBranch,
@@ -72,8 +72,8 @@ export function About() {
               I'm a BCA student from Durgapur working toward cloud engineering and SRE. I
               learn by building and breaking — this site is backed by a stack I run
               myself: Immich for photos, SearXNG for search, Vaultwarden for passwords,
-              Forgejo for code, all on a tailnet served by my own headscale control plane,
-              behind a VPS edge managed with Caddy and CrowdSec.
+              Forgejo for code, all on a Tailscale tailnet behind an Azure edge managed
+              with Pangolin.
             </p>
             <p className="display italic text-2xl leading-snug" style={{ color: "var(--ctp-mauve)" }}>
               "I prefer understanding the low level before trusting the high level."
@@ -99,7 +99,7 @@ export function About() {
               </p>
               <ul className="space-y-3 font-mono text-sm" style={{ color: "var(--ctp-crust)" }}>
                 {[
-                  "Networking (CGNAT, WireGuard, headscale)",
+                  "Networking (CGNAT, WireGuard, Tailscale)",
                   "Docker internals",
                   "Python",
                   "How the layers actually work",

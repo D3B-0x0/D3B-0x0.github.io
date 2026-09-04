@@ -46,19 +46,19 @@ export function Skills() {
     },
     {
       category: "Containerization",
-      skills: ["Docker", "Docker Compose", "Tailscale sidecar networking"],
+      skills: ["Docker", "Docker Compose", "Tailscale tailnet"],
     },
     {
       category: "Cloud & IaC",
-      skills: ["DigitalOcean", "Cloudflare", "Caddy", "CrowdSec", "Terraform"],
+      skills: ["Azure", "Cloudflare", "Pangolin", "Tailscale", "Terraform"],
     },
     {
       category: "Networking",
-      skills: ["Tailscale / WireGuard", "Headscale (self-hosted control plane)", "Reverse proxies", "DNS (Cloudflare)", "CrowdSec", "Headplane"],
+      skills: ["Tailscale / WireGuard", "Exit nodes & peer relays", "Reverse proxies", "DNS (Cloudflare)"],
     },
     {
       category: "Self-Hosting",
-      skills: ["Immich", "Vaultwarden", "SearXNG", "Forgejo", "Docker-in-Docker CI/CD", "Beszel", "Homepage", "Uptime Kuma", "Headplane"],
+      skills: ["Immich", "Vaultwarden", "SearXNG", "Forgejo", "Docker-in-Docker CI/CD", "Dockhand", "Better Uptime"],
     },
     {
       category: "Databases",
