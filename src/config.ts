@@ -31,10 +31,10 @@ export const SITE = {
       link: "https://searx.cloud.debnerd.in",
     },
     {
-      title: "Dockhand",
-      description: "Container management UI for my Docker hosts — the laptop daemon plus the Azure VM over the tailnet, in one place.",
-      tech: ["Docker", "Tailscale"],
-      link: "https://dockhand.cloud.debnerd.in",
+      title: "Pocket-ID",
+      description: "Self-hosted OIDC identity provider — the single sign-on behind my Forgejo logins, alongside Google and GitHub.",
+      tech: ["OIDC", "SSO", "Docker"],
+      link: "https://auth.cloud.debnerd.in",
     },
     {
       title: "Status Page",

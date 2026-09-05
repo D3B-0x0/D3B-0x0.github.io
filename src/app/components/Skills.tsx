@@ -58,7 +58,7 @@ export function Skills() {
     },
     {
       category: "Self-Hosting",
-      skills: ["Immich", "Vaultwarden", "SearXNG", "Forgejo", "Docker-in-Docker CI/CD", "Dockhand", "Better Uptime"],
+      skills: ["Immich", "Vaultwarden", "SearXNG", "Forgejo", "Docker-in-Docker CI/CD", "Pocket-ID", "Better Uptime"],
     },
     {
       category: "Databases",
