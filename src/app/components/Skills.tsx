@@ -46,15 +46,15 @@ export function Skills() {
     },
     {
       category: "Containerization",
-      skills: ["Docker", "Docker Compose", "Tailscale tailnet"],
+      skills: ["Docker", "Docker Compose", "NetBird mesh"],
     },
     {
       category: "Cloud & IaC",
-      skills: ["Azure", "Cloudflare", "Pangolin", "Tailscale", "Terraform"],
+      skills: ["Azure", "Cloudflare", "NetBird", "Traefik", "Terraform"],
     },
     {
       category: "Networking",
-      skills: ["Tailscale / WireGuard", "Exit nodes & peer relays", "Reverse proxies", "DNS (Cloudflare)"],
+      skills: ["NetBird / WireGuard", "Exit nodes & peer relays", "Reverse proxies", "DNS (Cloudflare)"],
     },
     {
       category: "Self-Hosting",
