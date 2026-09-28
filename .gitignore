@@ -66,3 +66,20 @@ temp/
 
 # Vite
 .vite/
+
+# Cloudflare / TLS tooling state
+# .wrangler/ holds local deploy state; wrangler's OAuth token lives in
+# ~/.wrangler/config (outside the repo) but local state does not.
+.wrangler/
+.dev.vars
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+
+# Terraform state (not used here yet, but never belongs in git)
+*.tfstate
+*.tfstate.*
+
+# wrangler.toml is intentionally tracked; never blanket-ignore it

@@ -1,6 +1,30 @@
 # Cloudflare Worker config for the portfolio site (static Astro build).
 # Deploy with: npm run deploy  (build + wrangler deploy)
-# Custom domain (aboutme.debnerd.in) is attached in the dashboard, not here.
+#
+# Pushes to main deploy automatically; this file is not what triggers that.
+# The Worker has no code — only an assets binding — so there is no runtime in
+# front of a request and nothing to patch or scale.
+#
+# ── Zone configuration that is NOT in this file ───────────────────────────
+# Cache rules and header behaviour live in the Cloudflare dashboard, so they
+# are invisible here. For the record, on zone debnerd.in
+# (95f53478fc6436bed77ad6666d6e8645):
+#
+#   Cache Rule "Cache aboutme HTML (static site)"
+#     (id 70164ef8338b414c80cb69c26d4febe4, phase http_request_cache_settings)
+#       · aboutme.debnerd.in → edge TTL 600s, browser TTL respects origin
+#       · blog.debnerd.in    → edge TTL 600s, browser TTL respects origin
+#     Nothing here changes the Cache-Control the browser receives.
+#
+#   Browser caching for hashed assets is set in public/_headers instead.
+#   That is deliberate: a Cache Rule with browser_ttl override_origin does
+#   match (confirmed via request-tracer) but cannot override the
+#   Cache-Control that the Workers static-assets binding attaches to the
+#   response. The assets binding wins, and _headers overrides it.
+#
+#   Cache rules are cumulative, not first-match: a host-only rule also
+#   matches /_astro/* and its settings override a more specific rule ordered
+#   above it. Scope path-specific rules accordingly.
 name = "d3b-0x0-github-io"
 compatibility_date = "2026-09-01"
 
