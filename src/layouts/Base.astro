@@ -1,6 +1,13 @@
 ---
 import { SITE } from "../data/site";
 
+// Preload the two families used above the fold. Without these the browser
+// only discovers the fonts after parsing the stylesheet, which costs a round
+// trip on the critical path. `crossorigin` is mandatory here even though the
+// files are same-origin, because font fetches are made in CORS mode.
+import lexendLatin from "@fontsource-variable/lexend/files/lexend-latin-wght-normal.woff2?url";
+import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+
 interface Props {
 	title?: string;
 	description?: string;
@@ -42,6 +49,21 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
 
 		<link rel="me" href={SITE.links.mastodonUrl} />
 		<link rel="sitemap" href="/sitemap.xml" />
+
+		<link
+			rel="preload"
+			href={lexendLatin}
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href={interLatin}
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 
 		{/*
 			Theme bootstrap. This has to be a blocking inline script in <head>,
