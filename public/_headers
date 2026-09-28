@@ -1,0 +1,13 @@
+# Cloudflare Workers Static Assets parses this file and applies the rules to
+# asset responses. It is NOT served as an asset itself.
+#
+# These override what Workers sends by default, which for every static asset
+# is "Cache-Control: public, max-age=0, must-revalidate".
+
+# Vite/Astro emit content-hashed filenames, so these can never change in
+# place. Long-lived + immutable means a returning visitor revalidates nothing.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*
+  X-Content-Type-Options: nosniff
