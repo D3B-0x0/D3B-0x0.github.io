@@ -1,0 +1,249 @@
+---
+import Doodles from "./Doodles.astro";
+import { SITE } from "../data/site";
+
+const NOW = [
+	{ label: "Studying", value: "BCA" },
+	{ label: "Learning", value: "Go, Python" },
+	{ label: "Reading", value: "SRE blogs at 1am" },
+	{ label: "Looking for", value: "SRE / DevOps internships" },
+];
+---
+
+<section id="top" class="hero">
+	<div class="hero__art" aria-hidden="true">
+		<div class="hero__doodle hero__doodle--a">
+			<Doodles name="squiggle" accent="iris" size={240} rotate={-8} />
+		</div>
+		<div class="hero__doodle hero__doodle--b">
+			<Doodles name="loop" accent="love" size={150} rotate={14} />
+		</div>
+		<div class="hero__doodle hero__doodle--c">
+			<Doodles name="spark" accent="gold" size={96} rotate={-4} />
+		</div>
+	</div>
+
+	<div class="shell hero__inner">
+		<div class="hero__text">
+			<p class="eyebrow animate-enter" style="--stagger: 0">
+				{SITE.location}
+			</p>
+
+			<h1 class="hero__title animate-enter" style="--stagger: 1">
+				{SITE.name}<span class="hero__accent">.</span>
+			</h1>
+
+			<p class="hero__lede display animate-enter" style="--stagger: 2">
+				{SITE.role}
+			</p>
+
+			<p class="hero__body animate-enter" style="--stagger: 3">
+				I learn by owning things that break. Everything I run sits on a private
+				network with no port open to the internet, behind a single identity
+				provider, with backups I have actually restored from.
+			</p>
+
+			<div class="hero__actions animate-enter" style="--stagger: 4">
+				<a
+					class="btn btn--primary"
+					href={SITE.links.codebergUrl}
+					target="_blank"
+					rel="noopener noreferrer">Codeberg</a>
+				<a class="btn btn--ghost" href={SITE.links.blog}>Blog</a>
+				<a class="btn btn--ghost" href="#contact">Email me</a>
+			</div>
+		</div>
+
+		<figure class="hero__figure animate-enter" style="--stagger: 2">
+			<div class="hero__photo">
+				<img
+					src="/me.jpg"
+					alt="Deb, the author of this site"
+					width="600"
+					height="800"
+					decoding="async"
+					fetchpriority="high"
+				/>
+			</div>
+			<figcaption class="hero__caption">
+				Me, presumably. The only photo here is one I actually took.
+			</figcaption>
+		</figure>
+	</div>
+
+	<!-- Current state, stated plainly. Concrete beats aspirational. -->
+	<dl class="shell now" aria-label="Currently">
+		{
+			NOW.map((item, i) => (
+				<div class="now__item animate-enter" style={`--stagger: ${i}`}>
+					<dt class="now__label">{item.label}</dt>
+					<dd class="now__value">{item.value}</dd>
+				</div>
+			))
+		}
+	</dl>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		padding-block: var(--spacing-page-start) 2rem;
+		overflow: clip;
+	}
+
+	.hero__art {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.hero__doodle {
+		position: absolute;
+		opacity: 0.55;
+		line-height: 0;
+	}
+
+	.hero__doodle--a {
+		inset-block-start: -1rem;
+		inset-inline-end: -4rem;
+		opacity: 0.4;
+	}
+
+	.hero__doodle--b {
+		inset-block-start: 16rem;
+		inset-inline-end: 30%;
+		opacity: 0.3;
+	}
+
+	.hero__doodle--c {
+		inset-block-start: 4rem;
+		inset-inline-end: 52%;
+		opacity: 0.28;
+	}
+
+	.hero__inner {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 2.5rem;
+		align-items: start;
+	}
+
+	.hero__title {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: clamp(3.25rem, 13vw, 7.5rem);
+		line-height: 0.92;
+		letter-spacing: -0.045em;
+		margin-block: 0.5rem 0.75rem;
+	}
+
+	.hero__accent {
+		color: var(--color-love-ink);
+	}
+
+	.hero__lede {
+		font-size: clamp(1.25rem, 3.6vw, 1.875rem);
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.025em;
+		color: var(--color-subtle);
+		max-inline-size: 24ch;
+		margin-block: 0 1.25rem;
+	}
+
+	.hero__body {
+		max-inline-size: 54ch;
+		color: var(--color-subtle);
+		font-size: 1.0625rem;
+	}
+
+	.hero__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-block-start: 1.75rem;
+	}
+
+	/* Photo: deliberately not a perfect rounded tile — a small rotation and
+	   a mono caption read as a person placing a print, not a template. */
+	.hero__figure {
+		margin: 0;
+		max-inline-size: 17rem;
+	}
+
+	.hero__photo {
+		border-radius: var(--radius-card-inner);
+		overflow: clip;
+		border: 1px solid var(--color-highlight-med);
+		background-color: var(--color-overlay);
+		box-shadow: var(--card-shadow);
+		transform: rotate(-1.5deg);
+	}
+
+	.hero__photo img {
+		display: block;
+		inline-size: 100%;
+		block-size: auto;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		filter: grayscale(1) contrast(1.05);
+	}
+
+	.hero__caption {
+		margin-block-start: 0.75rem;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		line-height: 1.5;
+		color: var(--color-muted);
+		text-align: center;
+	}
+
+	.now {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		gap: 1rem;
+		margin-block-start: 3.5rem;
+		padding-block-start: 1.5rem;
+		border-block-start: 1px solid var(--color-highlight-low);
+	}
+
+	.now__label {
+		font-family: var(--font-mono);
+		font-size: 0.6875rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-muted);
+		margin-block-end: 0.25rem;
+	}
+
+	.now__value {
+		margin: 0;
+		font-size: 0.9375rem;
+		color: var(--color-text);
+	}
+
+	@media (min-width: 40rem) {
+		.now {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.25rem 2rem;
+		}
+	}
+
+	@media (min-width: 64rem) {
+		.hero__inner {
+			grid-template-columns: 1fr auto;
+			gap: 4rem;
+		}
+
+		.hero__figure {
+			margin-block-start: 1.5rem;
+		}
+
+		.now {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+</style>

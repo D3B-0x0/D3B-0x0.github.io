@@ -1,0 +1,93 @@
+---
+import { SITE } from "../data/site";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = SITE.title, description = SITE.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={SITE.url} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="alternate icon" href="/favicon.ico" sizes="any" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<meta name="theme-color" content="#191724" />
+		<!--
+			Scoped variants so browser chrome follows the active scheme. The
+			bare tag above stays as the fallback for clients that ignore
+			media on theme-color, and for browsers in "system" mode.
+		-->
+		<meta name="theme-color" content="#faf4ed" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#191724" media="(prefers-color-scheme: dark)" />
+		<meta name="color-scheme" content="dark light" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={SITE.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={`${SITE.url}/me.jpg`} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={`${SITE.url}/me.jpg`} />
+
+		<link rel="me" href={SITE.links.mastodonUrl} />
+		<link rel="sitemap" href="/sitemap.xml" />
+
+		{/*
+			Theme bootstrap. This has to be a blocking inline script in <head>,
+			before any paint — if it ran later (or from a deferred module) the
+			page would flash the default scheme and then swap, which is worse
+			than not having a toggle at all. "system" stores nothing, so the
+			page keeps following the OS until the reader picks explicitly.
+		*/}
+		<script is:inline>
+			(() => {
+				try {
+					const stored = localStorage.getItem("theme");
+					if (stored === "light" || stored === "dark") {
+						document.documentElement.dataset.theme = stored;
+					}
+				} catch {
+					/* private mode or storage disabled - fall back to system */
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
+		<slot />
+	</body>
+</html>
+
+<style>
+	.skip-link {
+		position: absolute;
+		inset-inline-start: 50%;
+		inset-block-start: 0;
+		translate: -50% -120%;
+		z-index: 100;
+		padding: 0.75rem 1.25rem;
+		border-radius: 0 0 var(--radius-pill) var(--radius-pill);
+		background: var(--color-surface);
+		border: 1px solid var(--color-highlight-med);
+		color: var(--color-text);
+		text-decoration: none;
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		transition: translate 150ms ease;
+	}
+
+	.skip-link:focus-visible {
+		translate: -50% 0;
+	}
+</style>

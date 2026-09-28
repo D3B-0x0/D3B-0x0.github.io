@@ -1,5 +1,5 @@
-# Cloudflare Worker config for the portfolio site (static Vite build).
-# Deploy with: npm run build && npx wrangler deploy
+# Cloudflare Worker config for the portfolio site (static Astro build).
+# Deploy with: npm run deploy  (build + wrangler deploy)
 # Custom domain (aboutme.debnerd.in) is attached in the dashboard, not here.
 name = "d3b-0x0-github-io"
 compatibility_date = "2026-09-01"

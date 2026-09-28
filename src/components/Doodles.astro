@@ -1,0 +1,76 @@
+---
+/**
+ * Hand-drawn squiggles — the only ornament on the page.
+ *
+ * Deliberately loose, single-weight strokes that read as sketched rather than
+ * geometric, in the spirit of the reference site's "digitally hand-drawn"
+ * icons. Purely decorative: aria-hidden, and pointer-events are off in CSS so
+ * they never intercept a click.
+ */
+
+export type DoodleName =
+	| "squiggle"
+	| "loop"
+	| "spark"
+	| "arc"
+	| "cross"
+	| "circle";
+
+interface Props {
+	name: DoodleName;
+	accent?: "love" | "gold" | "rose" | "pine" | "foam" | "iris";
+	size?: number;
+	class?: string;
+	/** Degrees of rotation, so no two read identically. */
+	rotate?: number;
+}
+
+const { name, accent = "iris", size = 120, class: className, rotate = 0 } =
+	Astro.props;
+
+const stroke = `var(--color-${accent})`;
+---
+
+<svg
+	class:list={["doodle", className]}
+	width={size}
+	height={size}
+	viewBox="0 0 120 120"
+	style={`stroke: ${stroke}; transform: rotate(${rotate}deg);`}
+	aria-hidden="true"
+	focusable="false"
+>
+	{
+		name === "squiggle" && (
+			<path d="M8 62 C 22 24, 40 24, 52 52 S 82 88, 96 54 S 112 22, 114 48" />
+		)
+	}
+	{
+		name === "loop" && (
+			<path d="M20 82 C 10 48, 38 22, 64 28 C 88 34, 100 64, 84 84" />
+		)
+	}
+	{
+		name === "spark" && (
+			<path d="M60 12 L60 44 M60 76 L60 108 M12 60 L44 60 M76 60 L108 60 M26 26 L46 46 M74 74 L94 94 M94 26 L74 46 M46 74 L26 94" />
+		)
+	}
+	{
+		name === "arc" && (
+			<path d="M10 96 C 26 40, 58 16, 92 22 C 104 24, 110 34, 106 44" />
+		)
+	}
+	{
+		name === "cross" && (
+			<path d="M40 30 L80 90 M80 30 L40 90" />
+		)
+	}
+	{
+		name === "circle" && (
+			<Fragment>
+				<circle cx="60" cy="60" r="34" />
+				<path d="M78 42 L96 60 L78 78" />
+			</Fragment>
+		)
+	}
+</svg>

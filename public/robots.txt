@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aboutme.debnerd.in/sitemap.xml
+Sitemap: https://aboutme.debnerd.in/sitemap-index.xml

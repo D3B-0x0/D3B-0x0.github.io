@@ -1,36 +1,71 @@
-# Personal Website - Deb (ghost)
+# aboutme
 
-Modern infrastructure engineer portfolio built with React, Tailwind CSS, and Motion.
+Personal site for Deb — a BCA student working toward cloud engineering, DevOps
+and SRE.
 
-## 🚀 Live Site
-[debnerd.in](https://debnerd.in)
+**Live:** <https://aboutme.debnerd.in>
 
-## 🛠️ Tech Stack
-- **React 18** - UI framework
-- **Vite** - Build tool
-- **Tailwind CSS v4** - Styling
-- **Motion** - Animations
-- **Catppuccin** - Color theme (Mocha/Latte)
+## Stack
 
-## 📦 Local Development
+Static build, no server, no runtime.
+
+- **Astro 7** — layouts and content, rendered to plain HTML at build time
+- **Svelte 5** — one island only: the navigation and theme toggle
+- **Tailwind CSS 4** — utility layer
+- **Rosé Pine** — colour, borrowed from [rose-pine](https://rosepinetheme.com)
+- **Cloudflare Workers** — serves `dist/` as static assets, with the custom
+  domain attached in the dashboard
+
+Motion is CSS, not JavaScript: a `--stagger` index on each element times a
+fixed step in a keyframe animation. That is most of why the page ships ~16 kB
+of gzipped JavaScript.
+
+## Local development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
+npm run dev        # dev server
+npm run build      # static output to dist/
+npm run preview    # serve the build locally
 ```
 
-## 🌐 Deployment
+Two convenience scripts, neither required:
 
-This site is automatically deployed to GitHub Pages via GitHub Actions on every push to `main`.
+```bash
+./serve.sh         # serve dist/ on 127.0.0.1:4321
+./serve-lan.sh     # same, bound to 0.0.0.0 so a phone on the Wi-Fi can load it
+```
 
-Primary repo: Forgejo → mirrored to GitHub.
+## Layout
 
-## 📄 License
+```
+src/
+  data/site.ts     all copy and content, single source of truth
+  layouts/         Base.astro — document shell, meta, theme bootstrap
+  components/      one file per section
+    Nav.svelte     the only island
+    Doodles.astro  hand-drawn SVG marks
+  styles/global.css  design tokens and the component layer
+```
 
-© 2026 Deb. All rights reserved.
+`src/data/site.ts` holds every string. Changing copy never means touching
+markup.
+
+## Theming
+
+Three schemes: `main` (dark), `dawn` (light), and `moon`, declared once in
+`global.css` and swapped by `:root` → `prefers-color-scheme` → `[data-theme]`.
+The toggle stores nothing in "system" mode, so an untouched page keeps
+following the OS. A blocking inline script in `<head>` applies the stored
+choice before first paint, so there is no flash of the wrong theme.
+
+Each scheme exposes two accent sets. `--color-<name>` is the pure upstream
+value, for decoration; `--color-<name>-ink` is the same hue darkened until it
+clears WCAG AA, for anything a human reads. Every ratio is measured in a
+browser rather than estimated — the numbers are recorded beside the values in
+`global.css`. If you change a colour, re-check it.
+
+## Deployment
+
+Pushes to `main` deploy through Cloudflare. The build output is `dist/`; the
+Worker has no code, only an assets binding.

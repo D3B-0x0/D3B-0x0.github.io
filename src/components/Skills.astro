@@ -1,0 +1,77 @@
+---
+import { SKILLS } from "../data/site";
+---
+
+<section id="skills" class="section">
+	<div class="shell">
+		<p class="eyebrow">Toolkit</p>
+		<h2 class="section__title">What I reach for</h2>
+
+		<ul class="grid" role="list">
+			{
+				SKILLS.map((group, i) => (
+					<li
+						class="group animate-enter"
+						style={`--stagger: ${i % 4}`}
+					>
+						<h3
+							class="group__title"
+							style={`color: var(--color-${group.accent}-ink)`}
+						>
+							{group.category}
+						</h3>
+						<ul class="group__chips" role="list">
+							{group.skills.map((skill) => (
+								<li>
+									<span
+										class="chip"
+										style={`--chip-accent: var(--color-${group.accent})`}
+									>
+										{skill}
+									</span>
+								</li>
+							))}
+						</ul>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
+
+<style>
+	.grid {
+		display: grid;
+		gap: 2rem;
+		padding: 0;
+		margin-block-start: 2.5rem;
+	}
+
+	.group__title {
+		font-family: var(--font-mono);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		margin-block-end: 0.875rem;
+	}
+
+	.group__chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		padding: 0;
+	}
+
+	@media (min-width: 40rem) {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (min-width: 64rem) {
+		.grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+</style>
